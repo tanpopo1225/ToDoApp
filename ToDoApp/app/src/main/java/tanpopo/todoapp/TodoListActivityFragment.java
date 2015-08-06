@@ -1,16 +1,23 @@
 package tanpopo.todoapp;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class TodoListActivityFragment extends Fragment {
+
+  private RecyclerView recyclerView;
+  private FloatingActionButton floatingActionButton;
+  private RecyclerView.Adapter adapter;
+  private RecyclerView.LayoutManager layoutManager;
+  private ArrayList<Todo> todos;
 
   public TodoListActivityFragment() {
   }
@@ -18,6 +25,31 @@ public class TodoListActivityFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_todo_list, container, false);
+    View view = inflater.inflate(R.layout.fragment_todo_list, container, false);
+
+    findView(view);
+
+    setRecyclerView();
+
+    return view;
+  }
+
+  private void findView(View view) {
+    recyclerView = (RecyclerView)view.findViewById(R.id.todo_list);
+    floatingActionButton = (FloatingActionButton)view.findViewById(R.id.add_button);
+  }
+  private void setRecyclerView() {
+    recyclerView.setHasFixedSize(true);
+    layoutManager = new LinearLayoutManager(getActivity());
+    recyclerView.setLayoutManager(layoutManager);
+
+    todos = new ArrayList<>(); //後に変更
+    adapter = new TodoAdapter(todos);
+    recyclerView.setAdapter(adapter);
+  }
+
+  public void addTodo() {
+    //todos.add(0,);
+    adapter.notifyItemInserted(0);
   }
 }
