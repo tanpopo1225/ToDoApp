@@ -1,4 +1,4 @@
-package tanpopo.todoapp;
+package tanpopo.todoapp.data;
 
 import java.util.Calendar;
 
@@ -29,7 +29,6 @@ public class Todo {
   public boolean isFinishFlag() {
     return finishFlag;
   }
-
   public Calendar getUpdateTime() {
     return updateTime;
   }

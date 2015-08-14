@@ -20,7 +20,7 @@
         <fragment
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/fragment"
-            android:name="tanpopo.todoapp.TodoListActivityFragment"
+            android:name="tanpopo.todoapp.todo_list.TodoListActivityFragment"
             tools:layout="@layout/fragment_todo_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

@@ -1,4 +1,4 @@
-package tanpopo.todoapp;
+package tanpopo.todoapp.data;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,13 +10,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import tanpopo.todoapp.R;
+
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
   ArrayList<Todo> todos;
 
   public static class ViewHolder extends RecyclerView.ViewHolder {
     public CardView cardView;
 
-    public ViewHolder(View view, int viewtype) {
+    public ViewHolder(View view) {
       super(view);
       cardView = (CardView)view;
     }
@@ -30,7 +32,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
   public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
     View  view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.todo_card, viewGroup, false);
     view.setClickable(true);
-    return new ViewHolder(view, viewType);
+    return new ViewHolder(view);
   }
 
   @Override

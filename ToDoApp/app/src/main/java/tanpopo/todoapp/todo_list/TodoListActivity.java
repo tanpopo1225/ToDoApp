@@ -1,10 +1,12 @@
-package tanpopo.todoapp;
+package tanpopo.todoapp.todo_list;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import tanpopo.todoapp.R;
 
 
 public class TodoListActivity extends ActionBarActivity {
