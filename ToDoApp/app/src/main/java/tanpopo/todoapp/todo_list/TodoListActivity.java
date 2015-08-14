@@ -1,7 +1,10 @@
 package tanpopo.todoapp.todo_list;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +13,8 @@ import tanpopo.todoapp.R;
 
 
 public class TodoListActivity extends ActionBarActivity {
+  private DrawerLayout drawerLayout;
+  private ActionBarDrawerToggle drawerToggle;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,12 @@ public class TodoListActivity extends ActionBarActivity {
     setSupportActionBar(toolbar);
 
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
+    drawerLayout.setDrawerListener(drawerToggle);
+    drawerToggle.setDrawerIndicatorEnabled(true);
   }
 
 
@@ -42,6 +53,22 @@ public class TodoListActivity extends ActionBarActivity {
       return true;
     }
 
+    if (drawerToggle.onOptionsItemSelected(item)) {
+      return true;
+    }
+
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override
+  protected void onPostCreate(Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
+    drawerToggle.syncState();
+  }
+
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    drawerToggle.onConfigurationChanged(newConfig);
   }
 }
