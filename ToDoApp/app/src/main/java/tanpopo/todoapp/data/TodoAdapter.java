@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import tanpopo.todoapp.R;
 
@@ -48,5 +49,28 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
   @Override
   public int getItemCount() {
     return todos.size();
+  }
+
+  public void refineDataset(List list, int categoryId) {
+    int i = 0;
+    todos.clear();
+    todos.addAll(list);
+    for (Todo todo : todos) {
+      if (todo.getCategory() == categoryId) {
+        todos.remove(i);
+        notifyItemRemoved(i);
+      }
+    }
+  }
+
+  public void removeDataset(Todo data) {
+    int i = 0;
+    for (Todo todo : todos) {
+      if (todos.remove(todo)) {
+        notifyItemRemoved(i);
+        break;
+      }
+      i++;
+    }
   }
 }

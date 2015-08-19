@@ -5,11 +5,11 @@ import java.util.Calendar;
 public class Todo {
   private int id;
   private String title;
-  private String category;
+  private int category;
   private boolean finishFlag;
   private Calendar updateTime;
 
-  public Todo(int id, String title, String category, boolean finishFlag, Calendar updateTime) {
+  public Todo(int id, String title, int category, boolean finishFlag, Calendar updateTime) {
     this.id = id;
     this.title = title;
     this.category = category;
@@ -23,7 +23,7 @@ public class Todo {
   public String getTitle() {
     return title;
   }
-  public String getCategory() {
+  public int getCategory() {
     return category;
   }
   public boolean isFinishFlag() {
