@@ -40,8 +40,6 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
   public void onBindViewHolder(ViewHolder viewHolder, int position) {
     Todo todo = todos.get(position);
     View view = viewHolder.cardView;
-//    後に変更
-//    (LinearLayout)view.findViewById(R.id.value_linear).setBackground(todo.getCategory());
     ((TextView)view.findViewById(R.id.todo_title)).setText(todo.getTitle());
     ((CheckBox)view.findViewById(R.id.finish_flag)).setChecked(todo.isFinishFlag());
   }

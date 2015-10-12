@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import tanpopo.todoapp.R;
 import tanpopo.todoapp.data.Todo;
@@ -35,6 +36,7 @@ public class TodoListActivityFragment extends Fragment implements OnClickListene
     setListener();
     setRecyclerView();
 
+    addTodo();
     return view;
   }
 
@@ -50,6 +52,7 @@ public class TodoListActivityFragment extends Fragment implements OnClickListene
   public void onClick(View view) {
     if (view.getId() == R.id.add_button) {
       //Todo作成画面へ
+      addTodo();
     }
   }
 
@@ -63,8 +66,9 @@ public class TodoListActivityFragment extends Fragment implements OnClickListene
     recyclerView.setAdapter(adapter);
   }
 
-//  public void addTodo() {
-//    todos.add(0,);
-//    adapter.notifyItemInserted(0);
-//  }
+  public void addTodo() {
+    todos.add(0, new Todo(0, "テスト", 0, true));
+    adapter.notifyItemInserted(0);
+    recyclerView.scrollToPosition(0);
+  }
 }

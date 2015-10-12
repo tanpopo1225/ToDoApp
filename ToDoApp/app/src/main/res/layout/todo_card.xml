@@ -16,7 +16,7 @@
         android:paddingRight="16dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="@drawable/card_background">
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/todo_title"
@@ -30,25 +30,10 @@
             android:ellipsize="end"
             android:layout_weight="1"/>
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/finish_flag"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/finish"
-                android:textSize="24dp"
-                android:textColor="@color/secondary_text"/>
-
-            <CheckBox
-                android:id="@+id/finish_flag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
 </android.support.v7.widget.CardView>
