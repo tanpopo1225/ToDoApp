@@ -1,5 +1,6 @@
 package tanpopo.todoapp.todo_list;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import tanpopo.todoapp.R;
+import tanpopo.todoapp.create_todo.CreateTodoActivity;
 import tanpopo.todoapp.data.Todo;
 import tanpopo.todoapp.data.TodoAdapter;
 
@@ -49,7 +51,8 @@ public class TodoListActivityFragment extends Fragment implements OnClickListene
 
   public void onClick(View view) {
     if (view.getId() == R.id.add_button) {
-      //Todo作成画面へ
+      Intent intent = new Intent(getActivity(), CreateTodoActivity.class);
+      startActivity(intent);
     }
   }
 
