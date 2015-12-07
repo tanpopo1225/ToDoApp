@@ -33,7 +33,12 @@ public class CategoryDatabase extends SQLiteOpenHelper {
   @Override
   public void onCreate(SQLiteDatabase db) {
     db.execSQL(DatabaseManager.CREATE_TABLE_CATEGORY);
-    db.execSQL(DatabaseManager.CREATE_TABLE_TODO);
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー1", "blue"});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー2", "gray"});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー3", "green"});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー4", "red"});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー5", "yellow"});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー6", "purple"});
   }
 
   @Override
@@ -48,7 +53,7 @@ public class CategoryDatabase extends SQLiteOpenHelper {
     Cursor cursor = database.rawQuery(DatabaseManager.SELECT_TABLE_CATEGORY, null);
     while (cursor.moveToNext()) {
       Category category = new Category(cursor.getInt(cursor.getColumnIndex("_id")),
-              cursor.getString(cursor.getColumnIndex("name")));
+              cursor.getString(cursor.getColumnIndex("name")), cursor.getString(cursor.getColumnIndex("color")));
       categories.add(category);
     }
     return categories;
