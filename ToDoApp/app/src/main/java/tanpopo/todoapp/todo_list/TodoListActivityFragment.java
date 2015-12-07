@@ -65,9 +65,4 @@ public class TodoListActivityFragment extends Fragment implements OnClickListene
     adapter = new TodoAdapter(todos);
     recyclerView.setAdapter(adapter);
   }
-
-//  public void addTodo() {
-//    todos.add(0,);
-//    adapter.notifyItemInserted(0);
-//  }
 }
