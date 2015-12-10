@@ -14,13 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tanpopo.todoapp.R;
+import tanpopo.todoapp.data.Category;
+import tanpopo.todoapp.data.CategoryAdapter;
 
 public class TodoDetailActivity extends ActionBarActivity {
   EditText todoTitle;
   Spinner categorySpinner;
   CheckBox finishCheck;
   EditText todoMemo;
-  ArrayAdapter adapter;
+  ArrayList<Category> categories;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +63,13 @@ public class TodoDetailActivity extends ActionBarActivity {
   private void setListener() {
     todoTitle = (EditText)findViewById(R.id.todo_title);
     categorySpinner = (Spinner)findViewById(R.id.categoies_spinner);
-    adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
     finishCheck = (CheckBox)findViewById(R.id.finish_flag);
     todoMemo = (EditText)findViewById(R.id.edit_memo);
   }
   private void setSpinner() {
-    List<String> categories = new ArrayList<>();
-    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categories);
+    categories = new ArrayList<>(); //後で変更
+    CategoryAdapter adapter = new CategoryAdapter(this);
+    adapter.setCategories(categories);
     categorySpinner.setAdapter(adapter);
   }
   private void setValue() {

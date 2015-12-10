@@ -10,12 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import tanpopo.todoapp.R;
+import tanpopo.todoapp.data.Category;
+import tanpopo.todoapp.data.CategoryAdapter;
 
 public class CreateTodoActivity extends ActionBarActivity {
 
   private Spinner categoriesSpinner;
+  private ArrayList<Category> categories;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -56,7 +61,11 @@ public class CreateTodoActivity extends ActionBarActivity {
     categoriesSpinner = (Spinner)findViewById(R.id.categoies_spinner);
   }
   private void setSpinner() {
-    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
+    categories = new ArrayList<>(); //後で変更
+    categories.add(new Category(0, "カテゴリー", "blue"));
+    categories.add(new Category(1, "カテゴリー２", "yellow"));
+    CategoryAdapter adapter = new CategoryAdapter(this);
+    adapter.setCategories(categories);
     categoriesSpinner.setAdapter(adapter);
   }
 }
