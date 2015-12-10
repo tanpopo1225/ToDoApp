@@ -6,10 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.CharArrayReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import tanpopo.todoapp.data.Category;
+import tanpopo.todoapp.data.CategoryColor;
 
 /**
  * Created by takahashi on 2015/11/23.
@@ -33,12 +35,12 @@ public class CategoryDatabase extends SQLiteOpenHelper {
   @Override
   public void onCreate(SQLiteDatabase db) {
     db.execSQL(DatabaseManager.CREATE_TABLE_CATEGORY);
-    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー1", "blue"});
-    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー2", "gray"});
-    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー3", "green"});
-    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー4", "red"});
-    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー5", "yellow"});
-    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー6", "purple"});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー1", CategoryColor.BLUE});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー2", CategoryColor.GRAY});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー3", CategoryColor.GREEN});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー4", CategoryColor.RED});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー5", CategoryColor.YELLOW});
+    db.execSQL(DatabaseManager.INSERT_RECODE_CATEGORY, new Object[]{"カテゴリー6", CategoryColor.PURPLE});
   }
 
   @Override
