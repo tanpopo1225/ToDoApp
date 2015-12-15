@@ -62,8 +62,6 @@ public class CreateTodoActivity extends ActionBarActivity {
   }
   private void setSpinner() {
     categories = new ArrayList<>(); //後で変更
-    categories.add(new Category(0, "カテゴリー", "blue"));
-    categories.add(new Category(1, "カテゴリー２", "yellow"));
     CategoryAdapter adapter = new CategoryAdapter(this);
     adapter.setCategories(categories);
     categoriesSpinner.setAdapter(adapter);
