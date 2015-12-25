@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">ToDoApp</string>
     <string name="action_settings">Settings</string>
+    <string name="category_dummy">カテゴリー</string>
     <string name="finish">終了</string>
     <string name="title_activity_todo_detail">TodoDetailActivity</string>
-
-    <string name="hello_world">Hello world!</string>
 </resources>
