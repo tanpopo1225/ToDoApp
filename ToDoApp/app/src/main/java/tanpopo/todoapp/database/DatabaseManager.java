@@ -14,8 +14,8 @@ public final class DatabaseManager {
   //Category
   protected static final String CREATE_TABLE_CATEGORY = "create table " + TABLE_NAME_CATEGORY + "(_id integer primary key autoincrement, name text, color text)";
   protected static final String DROP_TABLE_CATEGORY = "drop table " + TABLE_NAME_CATEGORY;
-  protected static final String SELECT_TABLE_CATEGORY = "select _id, name from " + TABLE_NAME_CATEGORY;
-  protected static final String INSERT_RECODE_CATEGORY = "insert into " + TABLE_NAME_CATEGORY + "(name, color) value(?, ?)";
+  protected static final String SELECT_TABLE_CATEGORY = "select _id, name, color from " + TABLE_NAME_CATEGORY;
+  protected static final String INSERT_RECODE_CATEGORY = "insert into " + TABLE_NAME_CATEGORY + "(name, color) values(?, ?)";
   protected static final String UPDATE_RECODE_CATEGORY = "update " + TABLE_NAME_CATEGORY + "(name, color) values(?, ?) where _id = ?";
 
   //Todo

@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.CharArrayReader;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class CategoryDatabase extends SQLiteOpenHelper {
 
   @Override
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    db.execSQL(DatabaseManager.DROP_TABLE_TODO);
+    db.execSQL(DatabaseManager.DROP_TABLE_CATEGORY);
     db.execSQL(DatabaseManager.DROP_TABLE_CATEGORY);
     onCreate(db);
   }
@@ -54,8 +55,7 @@ public class CategoryDatabase extends SQLiteOpenHelper {
     List<Category> categories = new ArrayList<>();
     Cursor cursor = database.rawQuery(DatabaseManager.SELECT_TABLE_CATEGORY, null);
     while (cursor.moveToNext()) {
-      Category category = new Category(cursor.getInt(cursor.getColumnIndex("_id")),
-              cursor.getString(cursor.getColumnIndex("name")), cursor.getString(cursor.getColumnIndex("color")));
+      Category category = new Category(cursor.getInt(cursor.getColumnIndex("_id")), cursor.getString(cursor.getColumnIndex("name")), cursor.getString(cursor.getColumnIndex("color")));
       categories.add(category);
     }
     return categories;

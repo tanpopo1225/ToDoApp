@@ -3,19 +3,16 @@ package tanpopo.todoapp.create_todo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import tanpopo.todoapp.R;
 import tanpopo.todoapp.data.Category;
 import tanpopo.todoapp.data.CategoryAdapter;
+import tanpopo.todoapp.database.CategoryDatabaseOperation;
 
 public class CreateTodoActivity extends ActionBarActivity {
 
@@ -61,7 +58,7 @@ public class CreateTodoActivity extends ActionBarActivity {
     categoriesSpinner = (Spinner)findViewById(R.id.categoies_spinner);
   }
   private void setSpinner() {
-    categories = new ArrayList<>(); //後で変更
+    categories = (ArrayList)new CategoryDatabaseOperation(this).selectCategory();
     CategoryAdapter adapter = new CategoryAdapter(this);
     adapter.setCategories(categories);
     categoriesSpinner.setAdapter(adapter);
